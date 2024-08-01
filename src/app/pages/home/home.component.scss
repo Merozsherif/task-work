@@ -1,0 +1,76 @@
+main {
+  background-color: #1369ce;
+  max-height: fit-content; /* Set height to 100 viewport height for full-screen */
+  max-width: 100%;
+  padding: 20px;
+
+  .users-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    .our-team {
+      padding: 20px;
+      /* Responsive adjustments based on screen width */
+      @media (max-width: 768px) {
+        flex-basis: 100%; /* Single column on small screens */
+        max-width: 100%;
+      }
+
+      @media (min-width: 768px) and (max-width: 992px) {
+        flex-basis: 50%; /* Two columns on medium screens */
+        max-width: 50%;
+      }
+
+      @media (min-width: 992px) and (max-width: 1200px) {
+        flex-basis: 33.33%; /* Three columns on large screens */
+        max-width: 33.33%;
+      }
+
+      @media (min-width: 1200px) {
+        flex-basis: 33.33%; /* Three columns on large screens */
+        max-width: 33.33%;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+// main{
+//   background-color:#1369ce ;
+//   height: 200vh;
+//   padding: 20px;
+//   max-width: 100%;
+//   .users-list{
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-around ;
+//     flex-wrap: wrap;
+
+//     .our-team{
+//       flex-basis: 100%;
+//       padding: 20px;
+//       max-width: 33%;
+//     }
+//   }
+// }
+
+
+
+
+// @media (min-width: 768px) and (max-width: 991px) {
+
+
+//     .our-team{
+//       flex-basis: 100%;
+//       padding: 20px;
+//       width: 100%;
+//     }
+// }
+

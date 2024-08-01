@@ -1,0 +1,19 @@
+<app-header></app-header>
+<main>
+  <div class="container">
+    <div class="users-list">
+      <!-- <input class="form-control me-2" [(ngModel)]="searchKey" type="search" placeholder="Search" aria-label="Search"> -->
+        <!-- <div class="col-3 col-sm-6 col-md-4 col-lg-3 row"> -->
+        <div class="our-team col-3 col-sm-6 col-md-4 col-lg-3 "  *ngFor="let user of users |filter:searchKey">
+        <app-card
+          [avatar]="user.avatar"
+          [first_name]="user.first_name"
+          [last_name]="user.last_name"
+          [email]="user.email"
+          [id]="user.id"
+        ></app-card>
+      </div>
+      <!-- </div> -->
+      </div>
+  </div>
+</main>
