@@ -3,16 +3,18 @@ import { UserService } from '../../service/user.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import * as Aos from 'aos';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'], // Ensure correct property name: styleUrls
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  users: any[] = []; // Initialize as an empty array
+  users: any[] = [];
+  filteredUsers: any[] = [];
   searchKey: string = '';
   isLoading = false;
-  filteredUsers: any[] = [];
+
   constructor(
     private _userservice: UserService,
     private toaster: ToastrService,
@@ -21,11 +23,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUsers();
-    this.search();
+    this.setupSearchSubscription();
     Aos.init();
   }
 
-  search() {
+  setupSearchSubscription() {
     this.isLoading = true;
     this.spinner.show();
     this._userservice.search.subscribe({
@@ -62,7 +64,6 @@ export class HomeComponent implements OnInit {
     if (this.searchKey) {
       this.filteredUsers = this.users.filter(user =>
         user.first_name.toLowerCase().includes(this.searchKey.toLowerCase()) ||
-        user.id.toLowerCase().includes(this.searchKey.toLowerCase()) ||
         user.last_name.toLowerCase().includes(this.searchKey.toLowerCase())
       );
     } else {

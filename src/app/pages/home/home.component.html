@@ -2,9 +2,12 @@
 <main>
   <div class="container">
     <div class="users-list">
-        <div data-aos="fade-up"
-            data-aos-duration="1300"
-        class="our-team col-3 col-sm-6 col-md-4 col-lg-3 "  *ngFor="let user of users |filter:searchKey">
+      <div
+        data-aos="fade-up"
+        data-aos-duration="1300"
+        class="our-team col-3 col-sm-6 col-md-4 col-lg-3"
+        *ngFor="let user of filteredUsers"
+      >
         <app-card
           [avatar]="user?.avatar"
           [first_name]="user.first_name"
@@ -13,13 +16,12 @@
           [id]="user.id"
         ></app-card>
       </div>
-      </div>
-  </div>
+    </div>
     <div class="text-center w-100" *ngIf="isLoading">
-    <app-spinner>
-    </app-spinner>
-  </div>
-  <div class="text-center w-100" *ngIf="!isLoading && filteredUsers.length === 0">
-    <p>The id not found</p>
+      <app-spinner></app-spinner>
+    </div>
+    <div class="text-center w-100" *ngIf="!isLoading && filteredUsers.length === 0">
+      <p>The name not found</p>
+    </div>
   </div>
 </main>
