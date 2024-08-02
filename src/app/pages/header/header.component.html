@@ -1,11 +1,11 @@
 <div class="container">
   <nav class="navbar bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand">Profile</a>
+      <a class="navbar-brand profile">Profile</a>
       <form class="d-flex" role="search">
         <div class="input_frame">
           <img src="../../../assets/search_icon.svg" alt="">
-        <input  type="text" [(ngModel)]="searchText"(keyup)="search($event)" placeholder=" search ">
+        <input  type="text" name="search" [(ngModel)]="searchText"(keyup)="search($event)" placeholder=" search ">
         </div>
       </form>
     </div>

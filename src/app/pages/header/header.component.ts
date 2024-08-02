@@ -13,12 +13,9 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  search(event: any) {  // Add an event parameter to the method
-    // event.preventDefault();
-    // this._userservice.dataemit(this.searchText);
-    // this._userservice.setSearchText(this.searchText);
+  search(event: any) {
+    // Add an event parameter to the method
     this.searchText = (event.target as HTMLInputElement).value
-    console.log(this.searchText);
     this._userservice.search.next(this.searchText);
   }
 }

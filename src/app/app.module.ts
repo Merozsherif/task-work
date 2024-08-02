@@ -12,10 +12,14 @@ import { HeaderComponent } from './pages/header/header.component';
 import { CardComponent } from './components/card/card.component';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DetailsComponent } from './pages/details/details.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { UserService } from './service/user.service';
+import { CacheService } from './service/cache.service';
+import { CachingInterceptor } from './helpers/http-interceptor';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     HeaderComponent,
     CardComponent,
     DetailsComponent,
-    FilterPipe
+    FilterPipe,
+    SpinnerComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +45,15 @@ import { FilterPipe } from './pipes/filter.pipe';
     MatrialModule,
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    UserService,
+    CacheService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CachingInterceptor,
+      multi: true,
+    }
+
   ],
   bootstrap: [AppComponent]
 })

@@ -17,9 +17,8 @@ export class CardComponent {
   constructor(private router: Router, private _userservice: UserService) { }
 
   ngOnInit(): void { }
-
+  // to recive data from the home component
   onNavigateToSong() {
-    // this._userservice.songData.next();
     this.router.navigateByUrl(`/id/${this.id}`, {
       state: {
         avatar: this.avatar,

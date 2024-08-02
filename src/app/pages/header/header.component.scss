@@ -1,4 +1,8 @@
-
+.profile{
+  font-weight: 600;
+  font-size: 25px;
+  color: #1369ce;
+}
 .input_frame{
   position: relative;
   width: 100%;
@@ -16,7 +20,7 @@
     border-radius: 35px;
     border: 2px solid #fff;
     padding: 0px 20px;
-    background:#71676776;
+    background:#136ace96;
     // background:#1369ce;
     color: #fff;
     &::placeholder{

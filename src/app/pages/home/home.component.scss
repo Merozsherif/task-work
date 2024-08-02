@@ -1,9 +1,15 @@
 main {
   background-color: #1369ce;
-  max-height: fit-content; /* Set height to 100 viewport height for full-screen */
+  height: 100vh; /* Set height to 100 viewport height for full-screen */
   max-width: 100%;
   padding: 20px;
+  @media (max-width: 768px) {
+    height: fit-content;
+  }
 
+  @media (min-width: 768px) and (max-width: 992px) {
+    height: fit-content;
+  }
   .users-list {
     display: flex;
     align-items: center;
